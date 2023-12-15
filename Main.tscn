@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://djb7qnqe2k7iq"]
+
+[ext_resource type="Texture2D" uid="uid://bh1y3i2ltxa0f" path="res://Background.png" id="1_150g1"]
+[ext_resource type="PackedScene" uid="uid://dbx1n5qw6ew38" path="res://Ingredientes/ingrediente_1.tscn" id="1_j1oss"]
+[ext_resource type="Texture2D" uid="uid://b84qj5x32jwc2" path="res://GlassPaneBig.png" id="2_actqr"]
+[ext_resource type="Texture2D" uid="uid://djp22grklle6y" path="res://5740.png" id="3_w6n2s"]
+[ext_resource type="PackedScene" uid="uid://cpdtdsg5efbh8" path="res://Ingredientes/node_2d.tscn" id="5_bbghe"]
+[ext_resource type="Texture2D" uid="uid://digthpxaea4ym" path="res://money.png" id="6_jqtht"]
+[ext_resource type="Texture2D" uid="uid://cgm8baf7puw7c" path="res://Orden1.png" id="7_iebrr"]
+[ext_resource type="Texture2D" uid="uid://bpxrxwd63uyb2" path="res://Orden2.png" id="8_gu4t2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0oos6"]
+size = Vector2(412, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ofjor"]
+font_size = 38
+font_color = Color(0.729412, 0.819608, 0, 1)
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_horizontal_guides_ = []
+metadata/_edit_vertical_guides_ = [465.0]
+
+[node name="Ingrediente 1" parent="." instance=ExtResource("1_j1oss")]
+top_level = true
+position = Vector2(588, -43)
+scale = Vector2(1.07983, 0.992945)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(601, 320)
+texture = ExtResource("1_150g1")
+metadata/_edit_lock_ = true
+
+[node name="GlassPane" type="Sprite2D" parent="."]
+position = Vector2(604, 309)
+scale = Vector2(0.733333, 0.488333)
+texture = ExtResource("2_actqr")
+metadata/_edit_lock_ = true
+
+[node name="Bread0" type="Sprite2D" parent="."]
+position = Vector2(467, 569)
+scale = Vector2(0.125, 0.10274)
+texture = ExtResource("3_w6n2s")
+region_enabled = true
+region_rect = Rect2(1530, 1507, 960, 584)
+metadata/_edit_lock_ = true
+
+[node name="Bread1" type="Sprite2D" parent="."]
+position = Vector2(603, 566)
+scale = Vector2(0.125, 0.10274)
+texture = ExtResource("3_w6n2s")
+region_enabled = true
+region_rect = Rect2(1530, 1507, 960, 584)
+metadata/_edit_lock_ = true
+
+[node name="Bread2" type="Sprite2D" parent="."]
+position = Vector2(746, 566)
+scale = Vector2(0.125, 0.10274)
+texture = ExtResource("3_w6n2s")
+region_enabled = true
+region_rect = Rect2(1530, 1507, 960, 584)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(603, 589)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_0oos6")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Ingrediente2" parent="." instance=ExtResource("5_bbghe")]
+position = Vector2(594, -654)
+
+[node name="Money" type="Sprite2D" parent="."]
+position = Vector2(58.5, 68.5)
+scale = Vector2(0.252778, 0.219444)
+texture = ExtResource("6_jqtht")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 106.0
+offset_top = 50.0
+offset_right = 204.0
+offset_bottom = 106.0
+text = "$ 250"
+label_settings = SubResource("LabelSettings_ofjor")
+
+[node name="Orden1" type="Sprite2D" parent="."]
+position = Vector2(934, 201)
+texture = ExtResource("7_iebrr")
+
+[node name="Orden2" type="Sprite2D" parent="."]
+position = Vector2(936, 390)
+texture = ExtResource("8_gu4t2")

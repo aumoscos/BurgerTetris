@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbx1n5qw6ew38"]
+
+[ext_resource type="Script" path="res://Ingredientes/ingrediente_1.gd" id="1_gykqo"]
+[ext_resource type="Texture2D" uid="uid://djp22grklle6y" path="res://5740.png" id="1_hvdrj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gn8i"]
+size = Vector2(126, 61)
+
+[node name="Ingrediente 1" type="CharacterBody2D"]
+position = Vector2(62, 51)
+disable_mode = 2
+script = ExtResource("1_gykqo")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.117146, 0.135)
+texture = ExtResource("1_hvdrj")
+region_enabled = true
+region_rect = Rect2(1543, 2193, 939, 450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_7gn8i")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_7gn8i")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

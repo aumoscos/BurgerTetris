@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpdtdsg5efbh8"]
+
+[ext_resource type="Script" path="res://Ingredientes/node_2d.gd" id="1_5cogs"]
+[ext_resource type="Texture2D" uid="uid://djp22grklle6y" path="res://5740.png" id="1_uqgbw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xifvl"]
+size = Vector2(120, 22)
+
+[node name="Ingrediente2" type="CharacterBody2D"]
+position = Vector2(241, 141)
+script = ExtResource("1_5cogs")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xifvl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.11399, 0.101761)
+texture = ExtResource("1_uqgbw")
+region_enabled = true
+region_rect = Rect2(2656, 816, 965, 511)
