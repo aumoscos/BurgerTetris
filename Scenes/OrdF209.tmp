@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8b7g4u8yx4na"]
+
+[ext_resource type="Texture2D" uid="uid://efnv2rjk3taf" path="res://Scenes/OrdenTileMap.png" id="1_38uec"]
+[ext_resource type="Script" path="res://Scenes/Orden.gd" id="1_b30ha"]
+[ext_resource type="Texture2D" uid="uid://dnd2edgk2axro" path="res://Scenes/OrdernTileMapNumber.png" id="3_rvttn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c4mjy"]
+texture = ExtResource("1_38uec")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ow7kg"]
+texture = ExtResource("3_rvttn")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xa7i6"]
+sources/0 = SubResource("TileSetAtlasSource_c4mjy")
+sources/1 = SubResource("TileSetAtlasSource_ow7kg")
+
+[node name="Orden" type="Node2D"]
+script = ExtResource("1_b30ha")
+
+[node name="OrderTileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_xa7i6")
+format = 2
+layer_0/name = "background"
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 1, 65536, 0, 65537, 65536, 1, 131073, 65536, 1, 196609, 65536, 1, 2, 65536, 0, 131074, 65536, 1, 196610, 65536, 1, 4, 131072, 0, 65540, 131072, 1, 131076, 131072, 1, 196612, 131072, 1, 3, 65536, 0, 65539, 65536, 1, 65538, 65536, 1, 131075, 65536, 1, 196611, 65536, 1, 262145, 65536, 1, 262146, 65536, 1, 262147, 65536, 1, 327681, 65536, 2, 327682, 65536, 2, 327683, 65536, 2, 327684, 131072, 2, 327680, 0, 2, 262144, 0, 1, 262148, 131072, 1)
