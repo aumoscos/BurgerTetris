@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://djp22grklle6y" path="res://5740.png" id="1_hvdrj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gn8i"]
-size = Vector2(126, 61)
+size = Vector2(110, 27)
 
 [node name="Ingrediente 1" type="CharacterBody2D"]
 position = Vector2(62, 51)
@@ -27,5 +27,3 @@ shape = SubResource("RectangleShape2D_7gn8i")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_7gn8i")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

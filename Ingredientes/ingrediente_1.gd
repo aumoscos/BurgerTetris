@@ -6,11 +6,7 @@ func _physics_process(_delta):
 		Input.get_action_strength("Right") - Input.get_action_strength("Left"),
 		1.25
 	)
-	
-	
-	
 	velocity = input_direction * move_speed
-	
 	move_and_slide()
 
 

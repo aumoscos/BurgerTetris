@@ -1,14 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpdtdsg5efbh8"]
+[gd_scene load_steps=4 format=3 uid="uid://dwnjo82rml3tb"]
 
-[ext_resource type="Script" path="res://Ingredientes/node_2d.gd" id="1_5cogs"]
 [ext_resource type="Texture2D" uid="uid://djp22grklle6y" path="res://5740.png" id="1_uqgbw"]
+
+[sub_resource type="GDScript" id="GDScript_7ug0j"]
+script/source = "extends CharacterBody2D
+@export var move_speed : float = 100
+
+func _physics_process(_delta):
+	var input_direction = Vector2(
+		Input.get_action_strength(\"Right\") - Input.get_action_strength(\"Left\"),
+		1.25
+	)
+	velocity = input_direction * move_speed
+	move_and_slide()
+
+
+	
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xifvl"]
 size = Vector2(120, 22)
 
 [node name="Ingrediente2" type="CharacterBody2D"]
 position = Vector2(241, 141)
-script = ExtResource("1_5cogs")
+script = SubResource("GDScript_7ug0j")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
