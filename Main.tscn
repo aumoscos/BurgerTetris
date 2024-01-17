@@ -32,7 +32,7 @@ size = Vector2(90, 56)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_libjx")
 metadata/_edit_horizontal_guides_ = [-112.0, 427.0, 19.0]
-metadata/_edit_vertical_guides_ = [602.0]
+metadata/_edit_vertical_guides_ = [697.0, 505.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(601, 320)
@@ -46,12 +46,11 @@ texture = ExtResource("2_actqr")
 metadata/_edit_lock_ = true
 
 [node name="Bread0" type="Sprite2D" parent="."]
-position = Vector2(467, 569)
+position = Vector2(460, 571)
 scale = Vector2(0.125, 0.10274)
 texture = ExtResource("3_w6n2s")
 region_enabled = true
 region_rect = Rect2(1530, 1507, 960, 584)
-metadata/_edit_lock_ = true
 
 [node name="Bread1" type="Sprite2D" parent="."]
 position = Vector2(603, 566)
