@@ -9,7 +9,6 @@ const SOURCE_ID: int = 0
 # El id del recurso para las texturas de los números
 const ORDER_COUNT_ID: int = 1
 
-
 const ingredientes_obligatorios = [
 	'carne'	
 ]
@@ -30,6 +29,15 @@ const ingredient_tile_location = {
 	'queso':     [3, 3],
 	'tocino':    [2, 3],
 	'champinon': [1, 3]
+}
+
+const costo_ingrediente = {
+	'carne':     1.25,
+	'lechuga':   0.3,
+	'tomate':    0.15,
+	'queso':     0.25,
+	'tocino':    0.85,
+	'champinon': 0.35
 }
 
 const quantity_tileset = {
@@ -53,6 +61,13 @@ No define cuantos ingredientes tiene el objetivo, si no cuantos
 de los ingredientes seleccionados, se pueden agregar.
 """
 @export var max_ingredient_count: int = 7
+
+
+"""
+Es el valor monetario del pedido, se genera en base a los ingredientes
+generados, y quizás en la dificultad (por implementar).
+"""
+var valor_monetario: float = 0
 
 var generated_ingredients = []
 
@@ -102,7 +117,12 @@ func generar_ingredientes(quantity: int):
 		ingredientes_finales.append(ingrediente)
 	return ingredientes_finales
 		
-	
+"""
+Retorna el valor que tiene la orden
+"""
+func get_costo(): 
+	return valor_monetario
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -130,17 +150,22 @@ func _ready():
 	
 	# Ahora generamos el estado inicial de los ingredientes
 	for i in range(generated.size()):
+		# Contiene una tupla [ <ingrediente>: string, <quantity>: int ]
 		var ingredient = generated[i]
-		print('ingredinete: ', ingredient)
+		# Contiene una tupla [ <x>, <y> ] del mipmap a renderizar
 		var target_atlas_location = ingredient_tile_location[ingredient[0]]
 		print('The target atlas:', target_atlas_location, ' and the quantity: ', ingredient[1])
 		print('The vector of atlas:', to_vect(target_atlas_location))
+		var costo_ingrediente = costo_ingrediente[ingredient[0]] * ingredient[1]
+		print('Costo del ingrediente ', ingredient[0], ' => $', costo_ingrediente)
+		valor_monetario += costo_ingrediente
 		order_state[ingredient[0]]['index'] = i
 		order_tile.set_cell(PAPER_LAYER, Vector2(1, i+1), SOURCE_ID, to_vect(target_atlas_location))
 		order_tile.set_cell(PAPER_LAYER, Vector2i(2, i+1), ORDER_COUNT_ID, quantity_tileset[ingredient[1]])
 		order_tile.set_cell(PAPER_LAYER, Vector2i(3, i+1), ORDER_COUNT_ID, completed_tileset[0])
 	#order_tile.force_update(PAPER_LAYER)
 	print('generated ingredient list: ', generated)
+	print('Total del costo de la orden: $', get_costo())
 	generated_ingredients = generated
 
 
@@ -151,4 +176,3 @@ func _process(delta):
 		var i = properties['index']
 		var completed_count = properties['count']
 		order_tile.set_cell(PAPER_LAYER, Vector2i(3, i+1), ORDER_COUNT_ID, completed_tileset[completed_count])
-	pass

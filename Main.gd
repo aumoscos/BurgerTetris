@@ -29,7 +29,7 @@ func inst(pos):
 func _on_pan_1_body_entered(body):
 	
 	hamb1.append(lastgen)
-	print(hamb1)
+	print('Ham1', hamb1)
 	
 	body.set_physics_process(false)
 	await get_tree().create_timer(2).timeout
@@ -41,7 +41,7 @@ func _on_pan_1_body_entered(body):
 
 func _on_pan_2_body_entered(body):
 	hamb2.append(lastgen)
-	print(hamb2)
+	print('Ham2', hamb2)
 
 	body.set_physics_process(false)
 	await get_tree().create_timer(2).timeout
@@ -53,7 +53,7 @@ func _on_pan_2_body_entered(body):
 
 func _on_pan_3_body_entered(body):
 	hamb3.append(lastgen)
-	print(hamb3)
+	print('Ham3', hamb3)
 	body.set_physics_process(false)
 	await get_tree().create_timer(2).timeout
 	inst(Vector2(601,16))
