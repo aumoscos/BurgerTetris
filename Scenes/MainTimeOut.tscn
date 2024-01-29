@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnvh0flrg6wh2"]
+
+[ext_resource type="FontFile" uid="uid://dobyw54preeap" path="res://Fonts/fonts/droid-sans/DroidSans.ttf" id="1_8ijk0"]
+[ext_resource type="Script" path="res://Scripts/controlTimeOut.gd" id="1_b6khn"]
+
+[node name="MainTimeOut" type="Node"]
+script = ExtResource("1_b6khn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.278431, 0.282353, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -364.5
+offset_top = -44.5
+offset_right = 364.5
+offset_bottom = 44.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.937255, 0.937255, 0.937255, 1)
+theme_override_fonts/font = ExtResource("1_8ijk0")
+theme_override_font_sizes/font_size = 76
+text = "¡ Se acabó el tiempo !"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 480.0
+offset_top = 415.0
+offset_right = 595.0
+offset_bottom = 446.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 27
+text = "Volver a jugar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

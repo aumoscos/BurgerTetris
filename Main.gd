@@ -14,6 +14,16 @@ var hamb1 = []
 var hamb2 = []
 var hamb3 = []
 
+#Variables para temporizador y puntaje
+var segundos = 60
+var puntaje = 0
+
+#funcion para Temporizador
+func updateTime():
+	segundos -=1
+	get_tree().get_nodes_in_group("temporizador")[0].text = "TIME = 0:" + str(segundos)
+	if segundos == 0:
+		get_tree().change_scene_to_file("res://Scenes/MainTimeOut.tscn")
 
 
 func inst(pos):
