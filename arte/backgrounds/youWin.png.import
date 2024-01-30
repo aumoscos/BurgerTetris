@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl3o4axmcmitq"
-path="res://.godot/imported/5741.png-72274b82aa35561f6a09e3e22889a1e7.ctex"
+uid="uid://d34itxgcytn1p"
+path="res://.godot/imported/youWin.png-7292ada6a8dad9576d119edbd75f7ca9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://5741.png"
-dest_files=["res://.godot/imported/5741.png-72274b82aa35561f6a09e3e22889a1e7.ctex"]
+source_file="res://arte/backgrounds/youWin.png"
+dest_files=["res://.godot/imported/youWin.png-7292ada6a8dad9576d119edbd75f7ca9.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl3o4axmcmitq"
-path="res://.godot/imported/5741.png-72274b82aa35561f6a09e3e22889a1e7.ctex"
+uid="uid://y0g4iy1erqvi"
+path="res://.godot/imported/youLose.png-fa12b1f74b98a23efd8ac171a5694e85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://5741.png"
-dest_files=["res://.godot/imported/5741.png-72274b82aa35561f6a09e3e22889a1e7.ctex"]
+source_file="res://arte/backgrounds/youLose.png"
+dest_files=["res://.godot/imported/youLose.png-fa12b1f74b98a23efd8ac171a5694e85.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

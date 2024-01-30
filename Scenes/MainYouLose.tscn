@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://df7jt00loeruu"]
+
+[ext_resource type="Script" path="res://Scripts/controlYouLose.gd" id="1_olnhu"]
+[ext_resource type="Texture2D" uid="uid://y0g4iy1erqvi" path="res://arte/backgrounds/youLose.png" id="2_gwryw"]
+[ext_resource type="Texture2D" uid="uid://bjpbarucr3224" path="res://arte/assets/chef1.png" id="3_ry7ok"]
+[ext_resource type="Script" path="res://Scripts/chefCry.gd" id="4_rcis5"]
+
+[sub_resource type="Animation" id="Animation_jdm1t"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_b3s0i"]
+resource_name = "chef"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4, 2.1, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_somqw"]
+_data = {
+"RESET": SubResource("Animation_jdm1t"),
+"chef": SubResource("Animation_b3s0i")
+}
+
+[node name="MainYouLose" type="Node"]
+script = ExtResource("1_olnhu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(599.429, 328)
+scale = Vector2(0.931428, 0.931429)
+texture = ExtResource("2_gwryw")
+
+[node name="volverAJugar" type="Button" parent="."]
+offset_left = 592.0
+offset_top = 303.0
+offset_right = 768.0
+offset_bottom = 363.0
+text = "RETRY"
+
+[node name="salir" type="Button" parent="."]
+offset_left = 592.0
+offset_top = 390.0
+offset_right = 768.0
+offset_bottom = 450.0
+text = "SALIR"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(469, 363)
+texture = ExtResource("3_ry7ok")
+hframes = 5
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_somqw")
+}
+script = ExtResource("4_rcis5")
+
+[connection signal="pressed" from="volverAJugar" to="." method="_on_volver_a_jugar_pressed"]
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]

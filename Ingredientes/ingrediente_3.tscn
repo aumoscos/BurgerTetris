@@ -5,4 +5,4 @@
 [node name="Ingrediente 3" instance=ExtResource("1_tuwvr")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(2755, 2212, 766, 458)
+region_rect = Rect2(2664.62, 2101.08, 856.375, 470.791)

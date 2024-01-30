@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm0f3nk4r3ie6"]
+
+[ext_resource type="Texture2D" uid="uid://d34itxgcytn1p" path="res://arte/backgrounds/youWin.png" id="1_j374o"]
+
+[node name="MainYouWin" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(601.559, 323.75)
+scale = Vector2(0.925532, 0.925532)
+texture = ExtResource("1_j374o")

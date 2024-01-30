@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cha7d2q4agtw"]
+
+[ext_resource type="PackedScene" uid="uid://dbx1n5qw6ew38" path="res://Ingredientes/ingrediente_1.tscn" id="1_54xy5"]
+[ext_resource type="Texture2D" uid="uid://bl3o4axmcmitq" path="res://5741.png" id="2_gwb7b"]
+
+[node name="Ingrediente 4" instance=ExtResource("1_54xy5")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(3710.86, 179.182, 972.16, 550.638)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="1"]
+scale = Vector2(0.117146, 0.135)
+texture = ExtResource("2_gwb7b")
+region_enabled = true
+region_rect = Rect2(3710.86, 179.182, 972.16, 550.638)
