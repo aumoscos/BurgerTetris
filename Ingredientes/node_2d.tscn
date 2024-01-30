@@ -22,14 +22,14 @@ func _physics_process(_delta):
 size = Vector2(120, 22)
 
 [node name="Ingrediente2" type="CharacterBody2D"]
-position = Vector2(241, 141)
+position = Vector2(241, 147)
 script = SubResource("GDScript_7ug0j")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xifvl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 33)
 scale = Vector2(0.11399, 0.101761)
 texture = ExtResource("1_uqgbw")
 region_enabled = true

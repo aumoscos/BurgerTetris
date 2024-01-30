@@ -12,7 +12,7 @@ scale = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 texture_repeat = 2
-position = Vector2(-9371.33, -9536.67)
+position = Vector2(-9354, -9535)
 scale = Vector2(0.356902, 0.356902)
 texture = ExtResource("2_hrybl")
 region_enabled = true

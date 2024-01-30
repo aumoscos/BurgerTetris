@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://blem36m3yw41w"]
+
+[ext_resource type="PackedScene" uid="uid://dbx1n5qw6ew38" path="res://Ingredientes/ingrediente_1.tscn" id="1_pj8kd"]
+[ext_resource type="Script" path="res://panSuperior.gd" id="2_5l85o"]
+
+[node name="panSuperior" instance=ExtResource("1_pj8kd")]
+script = ExtResource("2_5l85o")
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1544, 207, 932, 522)
