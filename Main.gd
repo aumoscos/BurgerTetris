@@ -4,8 +4,30 @@ var ingrediente1 = preload("res://Ingredientes/ingrediente_1.tscn")
 var ingrediente2 = preload("res://Ingredientes/ingrediente_2.tscn")
 var ingrediente3 = preload("res://Ingredientes/ingrediente_3.tscn")
 var ingrediente4 = preload("res://Ingredientes/ingrediente_4.tscn")
-var ingredientes = [ingrediente1, ingrediente2, ingrediente3, ingrediente4]
+
 var panSuperior = preload("res://Ingredientes/pan_superior.tscn")
+var ingrediente5 = preload("res://Ingredientes/ingrediente_5.tscn")
+var ingrediente6 = preload("res://Ingredientes/ingrediente_6.tscn")
+var ingrediente7 = preload("res://Ingredientes/ingrediente_7.tscn")
+var ingrediente8 = preload("res://Ingredientes/ingrediente_8.tscn")
+var ingrediente9 = preload("res://Ingredientes/ingrediente_9.tscn")
+var ingrediente10 = preload("res://Ingredientes/ingrediente_10.tscn")
+var ingrediente11 = preload("res://Ingredientes/ingrediente_11.tscn")
+var ingrediente12 = preload("res://Ingredientes/ingrediente_12.tscn")
+var ingrediente13 = preload("res://Ingredientes/ingrediente_13.tscn")
+var ingrediente14 = preload("res://Ingredientes/ingrediente_14.tscn")
+var ingrediente15 = preload("res://Ingredientes/ingrediente_15.tscn")
+var ingrediente16 = preload("res://Ingredientes/ingrediente_16.tscn")
+var ingrediente17 = preload("res://Ingredientes/ingrediente_17.tscn")
+var ingrediente18 = preload("res://Ingredientes/ingrediente_18.tscn")
+var ingrediente19 = preload("res://Ingredientes/ingrediente_19.tscn")
+var ingrediente20 = preload("res://Ingredientes/ingrediente_20.tscn")
+var ingrediente21 = preload("res://Ingredientes/ingrediente_21.tscn")
+
+var pan1Tapa = preload("res://Ingredientes/pan1Tapa.tscn")
+
+
+var ingredientes = [ingrediente1, ingrediente2, ingrediente3, ingrediente4, ingrediente5, ingrediente6, ingrediente7, ingrediente8, ingrediente9, ingrediente10, ingrediente11, ingrediente12, ingrediente13, ingrediente14, ingrediente15, ingrediente16, ingrediente17, ingrediente18, ingrediente19, ingrediente20, ingrediente21]
 var rng = RandomNumberGenerator.new()
 var panNext = 0
 var lastgen = 0
@@ -30,6 +52,18 @@ func _ready():
 	add_child(instance)
 	lastInstance= instance
 
+#Variables para temporizador y puntaje
+var segundos = 60
+var puntaje = 0
+
+#funcion para Temporizador
+func updateTime():
+	segundos -=1
+	get_tree().get_nodes_in_group("temporizador")[0].text = "TIME = 0:" + str(segundos)
+	if segundos == 0:
+		get_tree().change_scene_to_file("res://Scenes/MainTimeOut.tscn")
+
+		
 
 func inst(pos):
 	var rnum = rng.randi_range(0, 3)

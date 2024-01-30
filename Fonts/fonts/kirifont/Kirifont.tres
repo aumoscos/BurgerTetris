@@ -1,0 +1,12 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://fonts/kirifont/KiriFont.otf" type="DynamicFontData" id=1]
+
+[resource]
+resource_local_to_scene = true
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = -5
+extra_spacing_bottom = -20
+extra_spacing_char = 5
+font_data = ExtResource( 1 )

@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://bo2dkb0hjuwck"]
+
+[ext_resource type="Texture2D" uid="uid://nvan8y4cme7y" path="res://arte/backgrounds/victory.png" id="1_20yr1"]
+[ext_resource type="Script" path="res://Scripts/controlVictory.gd" id="1_m0g6g"]
+[ext_resource type="Texture2D" uid="uid://d2fnool87akqs" path="res://arte/assets/coinWin.png" id="2_rnted"]
+[ext_resource type="Script" path="res://Scripts/coin.gd" id="4_1t0e7"]
+
+[sub_resource type="Animation" id="Animation_hlmwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_63nnl"]
+resource_name = "coin"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s4jjs"]
+_data = {
+"RESET": SubResource("Animation_hlmwb"),
+"coin": SubResource("Animation_63nnl")
+}
+
+[node name="MainVictory" type="Node"]
+script = ExtResource("1_m0g6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(599.184, 325.25)
+scale = Vector2(0.943491, 0.943491)
+texture = ExtResource("1_20yr1")
+
+[node name="coin" type="Sprite2D" parent="."]
+position = Vector2(609, 257)
+scale = Vector2(0.64841, 0.64841)
+texture = ExtResource("2_rnted")
+hframes = 7
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="coin"]
+libraries = {
+"": SubResource("AnimationLibrary_s4jjs")
+}
+script = ExtResource("4_1t0e7")
+
+[node name="menu" type="Button" parent="."]
+offset_left = 550.0
+offset_top = 589.0
+offset_right = 672.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 26
+text = "MENU"
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

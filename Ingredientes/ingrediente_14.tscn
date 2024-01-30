@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://nckm0irndt5m"]
+
+[ext_resource type="PackedScene" uid="uid://dbx1n5qw6ew38" path="res://Ingredientes/ingrediente_1.tscn" id="1_heuas"]
+
+[node name="Ingrediente 4" instance=ExtResource("1_heuas")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(4820.45, 830.964, 941.78, 535.448)

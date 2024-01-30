@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://narmno3ydvd2"]
 
-[ext_resource type="Script" path="res://scripts/control.gd" id="1_4sa55"]
+[ext_resource type="Script" path="res://Scripts/control.gd" id="1_4sa55"]
 [ext_resource type="PackedScene" uid="uid://dyit5c8mi7ewh" path="res://Scenes/parallax_background.tscn" id="2_5epc1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24y06"]
