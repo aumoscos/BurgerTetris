@@ -4,7 +4,6 @@ var ingrediente1 = preload("res://Ingredientes/ingrediente_1.tscn")
 var ingrediente2 = preload("res://Ingredientes/ingrediente_2.tscn")
 var ingrediente3 = preload("res://Ingredientes/ingrediente_3.tscn")
 var ingrediente4 = preload("res://Ingredientes/ingrediente_4.tscn")
-
 var panSuperior = preload("res://Ingredientes/pan_superior.tscn")
 var ingrediente5 = preload("res://Ingredientes/ingrediente_5.tscn")
 var ingrediente6 = preload("res://Ingredientes/ingrediente_6.tscn")
@@ -44,6 +43,9 @@ var hamb3 = []
 var hamb1Instances = []
 var hamb2Instances = []
 var hamb3Instances = []
+var hamburguesas = []
+var dictIngredientes = {0:"carne", 1:"queso", 2:"lechuga",3:"huevo"}
+
 func _ready():
 	var rnum = rng.randi_range(0, 3)
 	var instance = ingredientes[rnum].instantiate()
@@ -53,7 +55,7 @@ func _ready():
 	lastInstance= instance
 
 #Variables para temporizador y puntaje
-var segundos = 60
+var segundos = 90
 var puntaje = 0
 
 #funcion para Temporizador
@@ -67,7 +69,7 @@ func updateTime():
 
 func inst(pos):
 	var rnum = rng.randi_range(0, 3)
-	panNext = rng.randi_range(0,10)
+	panNext = rng.randi_range(8,10)
 	if(panNext<10):
 		var instance = ingredientes[rnum].instantiate()
 		lastgen = rnum
@@ -87,17 +89,19 @@ func _on_pan_1_body_entered(body):
 	
 	if(panNext==10):
 		hamb1Instances.append(lastInstance)
-		print("Hamburguesa completada:")
-		print(hamb1)
+		var completa = []
+		for ingrediente in hamb1:
+			completa.append(ingrediente)
+		hamburguesas.append(completa)
+		print(hamburguesas)
 		for inst in hamb1Instances:
 			inst.queue_free()
 		hamb1Instances.clear()
+		hamb1.clear()
 		emit_signal("hamb1Completada")
 	else:
 		hamb1.append(lastgen)
-		print(hamb1)
 		hamb1Instances.append(lastInstance)
-		print(hamb1Instances)
 		emit_signal("pan1")
 		
 	body.set_physics_process(false)
@@ -111,11 +115,15 @@ func _on_pan_1_body_entered(body):
 func _on_pan_2_body_entered(body):
 	if(panNext==10):
 		hamb2Instances.append(lastInstance)
-		print("Hamburguesa completada:")
-		print(hamb2)
+		var completa = []
+		for ingrediente in hamb2:
+			completa.append(ingrediente)
+		hamburguesas.append(completa)
+		print(hamburguesas)
 		for inst in hamb2Instances:
 			inst.queue_free()
 		hamb2Instances.clear()
+		hamb2.clear()
 		emit_signal("hamb2Completada")
 	else:
 		hamb2.append(lastgen)
@@ -137,9 +145,15 @@ func _on_pan_3_body_entered(body):
 		hamb3Instances.append(lastInstance)
 		print("Hamburguesa completada:")
 		print(hamb3)
+		var completa = []
+		for ingrediente in hamb3:
+			completa.append(ingrediente)
+		hamburguesas.append(completa)
+		print(hamburguesas)
 		for inst in hamb3Instances:
 			inst.queue_free()
 		hamb3Instances.clear()
+		hamb3.clear()
 		emit_signal("hamb3Completada")
 	else:
 		hamb3.append(lastgen)

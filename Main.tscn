@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://djb7qnqe2k7iq"]
+[gd_scene load_steps=16 format=3 uid="uid://djb7qnqe2k7iq"]
 
 [ext_resource type="Texture2D" uid="uid://bh1y3i2ltxa0f" path="res://Background.png" id="1_150g1"]
-[ext_resource type="PackedScene" uid="uid://dbx1n5qw6ew38" path="res://Ingredientes/ingrediente_1.tscn" id="1_j1oss"]
 [ext_resource type="Script" path="res://Main.gd" id="1_libjx"]
 [ext_resource type="Texture2D" uid="uid://b84qj5x32jwc2" path="res://GlassPaneBig.png" id="2_actqr"]
 [ext_resource type="Texture2D" uid="uid://djp22grklle6y" path="res://5740.png" id="3_w6n2s"]
@@ -145,13 +144,13 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pan3"]
 shape = SubResource("RectangleShape2D_4y1f5")
 
-[node name="Ingrediente 1" parent="." instance=ExtResource("1_j1oss")]
-position = Vector2(602, 19)
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 script = ExtResource("11_ybkws")
 
+[connection signal="hamb1Completada" from="." to="Pan1" method="_on_node_2d_hamb_1_completada"]
+[connection signal="hamb2Completada" from="." to="Pan2" method="_on_node_2d_hamb_2_completada"]
+[connection signal="hamb3Completada" from="." to="Pan3" method="_on_node_2d_hamb_3_completada"]
 [connection signal="pan1" from="." to="Pan1" method="_on_node_2d_pan_1"]
 [connection signal="pan2" from="." to="Pan2" method="_on_node_2d_pan_2"]
 [connection signal="pan3" from="." to="Pan3" method="_on_node_2d_pan_3"]
