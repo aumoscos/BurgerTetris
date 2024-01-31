@@ -212,7 +212,7 @@ offset_left = 97.0
 offset_top = 187.5
 offset_right = 305.0
 offset_bottom = 243.5
-text = "TIME = 100"
+text = "TIME = 300"
 label_settings = SubResource("LabelSettings_ofjor")
 
 [node name="Orden" parent="." instance=ExtResource("10_53rlh")]
