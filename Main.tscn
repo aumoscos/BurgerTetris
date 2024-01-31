@@ -1,15 +1,95 @@
-[gd_scene load_steps=16 format=3 uid="uid://djb7qnqe2k7iq"]
+[gd_scene load_steps=27 format=3 uid="uid://djb7qnqe2k7iq"]
 
 [ext_resource type="Texture2D" uid="uid://bh1y3i2ltxa0f" path="res://Background.png" id="1_150g1"]
 [ext_resource type="Script" path="res://Main.gd" id="1_libjx"]
 [ext_resource type="Texture2D" uid="uid://b84qj5x32jwc2" path="res://GlassPaneBig.png" id="2_actqr"]
+[ext_resource type="Texture2D" uid="uid://2gmm6rwve1g2" path="res://arte/backgrounds/contenedor.png" id="3_rxci7"]
 [ext_resource type="Texture2D" uid="uid://djp22grklle6y" path="res://5740.png" id="3_w6n2s"]
-[ext_resource type="Texture2D" uid="uid://digthpxaea4ym" path="res://money.png" id="6_jqtht"]
+[ext_resource type="Texture2D" uid="uid://ducjhpqjrniyo" path="res://arte/backgrounds/estadoTablero.png" id="4_itq6k"]
+[ext_resource type="Texture2D" uid="uid://cljqjok1v1kkn" path="res://arte/assets/time.png" id="5_bqb74"]
+[ext_resource type="Texture2D" uid="uid://c58wb0odyy1w5" path="res://arte/assets/coinNuevo.png" id="6_6vfkw"]
+[ext_resource type="Script" path="res://Scripts/relojAnimation.gd" id="6_nwcr3"]
+[ext_resource type="Script" path="res://Scripts/moneyAnimation.gd" id="7_8esg4"]
 [ext_resource type="Script" path="res://Pan1.gd" id="8_6vi50"]
 [ext_resource type="Script" path="res://Pan2.gd" id="9_xoauu"]
 [ext_resource type="Script" path="res://Pan3.gd" id="10_0u6qi"]
 [ext_resource type="PackedScene" uid="uid://c8b7g4u8yx4na" path="res://Scenes/Orden.tscn" id="10_53rlh"]
 [ext_resource type="Script" path="res://Scripts/controlTimer.gd" id="11_ybkws"]
+
+[sub_resource type="Animation" id="Animation_yppq7"]
+resource_name = "relojAnimado"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_4tf6q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jmxc6"]
+_data = {
+"RESET": SubResource("Animation_4tf6q"),
+"relojAnimado": SubResource("Animation_yppq7")
+}
+
+[sub_resource type="Animation" id="Animation_31xn7"]
+resource_name = "moneyAnimado"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_baaeb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vyfhu"]
+_data = {
+"RESET": SubResource("Animation_baaeb"),
+"moneyAnimado": SubResource("Animation_31xn7")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0oos6"]
 size = Vector2(412, 20)
@@ -39,7 +119,40 @@ position = Vector2(601, 320)
 texture = ExtResource("1_150g1")
 metadata/_edit_lock_ = true
 
+[node name="contenedor" type="Sprite2D" parent="."]
+position = Vector2(601, 336)
+scale = Vector2(1, 0.962644)
+texture = ExtResource("3_rxci7")
+
+[node name="tableroEstado" type="Sprite2D" parent="."]
+position = Vector2(174, 149)
+texture = ExtResource("4_itq6k")
+
+[node name="relojAnimado" type="Sprite2D" parent="tableroEstado"]
+position = Vector2(-110, 60.1875)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("5_bqb74")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tableroEstado/relojAnimado"]
+libraries = {
+"": SubResource("AnimationLibrary_jmxc6")
+}
+script = ExtResource("6_nwcr3")
+
+[node name="moneyAnimado" type="Sprite2D" parent="tableroEstado"]
+position = Vector2(-107, -30.5)
+texture = ExtResource("6_6vfkw")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tableroEstado/moneyAnimado"]
+libraries = {
+"": SubResource("AnimationLibrary_vyfhu")
+}
+script = ExtResource("7_8esg4")
+
 [node name="GlassPane" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(604, 309)
 scale = Vector2(0.733333, 0.488333)
 texture = ExtResource("2_actqr")
@@ -86,25 +199,20 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 shape = SubResource("RectangleShape2D_0oos6")
 
-[node name="Money" type="Sprite2D" parent="."]
-position = Vector2(58.5, 68.5)
-scale = Vector2(0.252778, 0.219444)
-texture = ExtResource("6_jqtht")
-
 [node name="Label" type="Label" parent="."]
-offset_left = 149.0
-offset_top = 54.0
-offset_right = 247.0
-offset_bottom = 110.0
+offset_left = 102.0
+offset_top = 92.5
+offset_right = 200.0
+offset_bottom = 148.5
 text = "$ 0"
 label_settings = SubResource("LabelSettings_ofjor")
 
 [node name="Temporizador" type="Label" parent="." groups=["temporizador"]]
-offset_left = 36.0
-offset_top = 139.0
-offset_right = 134.0
-offset_bottom = 195.0
-text = "TIME = 1:00"
+offset_left = 97.0
+offset_top = 187.5
+offset_right = 305.0
+offset_bottom = 243.5
+text = "TIME = 100"
 label_settings = SubResource("LabelSettings_ofjor")
 
 [node name="Orden" parent="." instance=ExtResource("10_53rlh")]
