@@ -120,12 +120,13 @@ texture = ExtResource("1_150g1")
 metadata/_edit_lock_ = true
 
 [node name="contenedor" type="Sprite2D" parent="."]
-position = Vector2(601, 336)
-scale = Vector2(1, 0.962644)
+position = Vector2(592, 336)
+scale = Vector2(1.03237, 0.962644)
 texture = ExtResource("3_rxci7")
 
 [node name="tableroEstado" type="Sprite2D" parent="."]
-position = Vector2(174, 149)
+position = Vector2(161, 149)
+scale = Vector2(0.955414, 1)
 texture = ExtResource("4_itq6k")
 
 [node name="relojAnimado" type="Sprite2D" parent="tableroEstado"]
@@ -208,9 +209,9 @@ text = "$ 0"
 label_settings = SubResource("LabelSettings_ofjor")
 
 [node name="Temporizador" type="Label" parent="." groups=["temporizador"]]
-offset_left = 97.0
+offset_left = 86.0
 offset_top = 187.5
-offset_right = 305.0
+offset_right = 294.0
 offset_bottom = 243.5
 text = "TIME = 300"
 label_settings = SubResource("LabelSettings_ofjor")
