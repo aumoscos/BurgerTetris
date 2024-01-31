@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnvh0flrg6wh2"]
+[gd_scene load_steps=3 format=3 uid="uid://jn5cr8hjvet5"]
 
 [ext_resource type="FontFile" uid="uid://dobyw54preeap" path="res://Fonts/fonts/droid-sans/DroidSans.ttf" id="1_8ijk0"]
 [ext_resource type="Script" path="res://Scripts/controlTimeOut.gd" id="1_b6khn"]
