@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://44gkw4y37uya"
+path="res://.godot/imported/sonido para boton jugar.wav-34d2215eda44abba5d88d2555dad4f60.sample"
+
+[deps]
+
+source_file="res://Sounds/sonido para boton jugar.wav"
+dest_files=["res://.godot/imported/sonido para boton jugar.wav-34d2215eda44abba5d88d2555dad4f60.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

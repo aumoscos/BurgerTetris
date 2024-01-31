@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6ro5v3e7hj8b"
+path="res://.godot/imported/Sonido para pantalla principal.wav-96d75b794ad5a000196a453aee328a43.sample"
+
+[deps]
+
+source_file="res://Sounds/Sonido para pantalla principal.wav"
+dest_files=["res://.godot/imported/Sonido para pantalla principal.wav-96d75b794ad5a000196a453aee328a43.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
