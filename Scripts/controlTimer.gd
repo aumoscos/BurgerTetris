@@ -1,7 +1,7 @@
 extends Timer
 
-
+signal segundo
 
 
 func _on_timeout():
-	Main.updateTime()
+	emit_signal("segundo")

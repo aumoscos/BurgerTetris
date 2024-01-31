@@ -50,7 +50,7 @@ var hamb3Instances = []
 var hamburguesas = []
 var dictIngredientes = {0:"carne", 1:"lechuga", 2:"queso",3:"tocino",4:"champinon",5:"tomate"}
 var instCounter = 0
-var completadas = 0
+
 
 func _ready():
 	var rnum = rng.randi_range(0, 5)
@@ -65,9 +65,9 @@ func resetTimer():
 	segundos = 300
 	puntaje = 0
 
-
+var completadas = 0
 #Variables para temporizador y puntaje
-var segundos = 3
+var segundos = 300
 var puntaje = 0
 @onready var puntajeLabel = $Puntaje
 
@@ -83,7 +83,6 @@ func updateTime():
 
 
 func inst(pos):
-		completadas += 1
 		var rnum = rng.randi_range(0, 5)
 		panNext = rng.randi_range(8,10)
 		if(panNext<10):
@@ -142,8 +141,6 @@ func _on_pan_1_body_entered(body):
 	body.set_physics_process(false)
 	await get_tree().create_timer(2).timeout
 	inst(Vector2(601,16))
-	
-	
 
 
 func _on_pan_2_body_entered(body):
@@ -158,10 +155,6 @@ func _on_pan_2_body_entered(body):
 	body.set_physics_process(false)
 	await get_tree().create_timer(2).timeout
 	inst(Vector2(601,16))
-	
-	
-	
-
 
 func _on_pan_3_body_entered(body):
 	if(panNext==10):
@@ -174,5 +167,6 @@ func _on_pan_3_body_entered(body):
 	body.set_physics_process(false)
 	await get_tree().create_timer(2).timeout
 	inst(Vector2(601,16))
-	
 
+func _on_timer_segundo():
+	updateTime()

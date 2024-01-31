@@ -264,4 +264,5 @@ script = ExtResource("11_ybkws")
 [connection signal="body_entered" from="Pan1" to="." method="_on_pan_1_body_entered"]
 [connection signal="body_entered" from="Pan2" to="." method="_on_pan_2_body_entered"]
 [connection signal="body_entered" from="Pan3" to="." method="_on_pan_3_body_entered"]
+[connection signal="segundo" from="Timer" to="." method="_on_timer_segundo"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
