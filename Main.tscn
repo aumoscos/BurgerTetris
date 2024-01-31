@@ -215,15 +215,15 @@ offset_bottom = 243.5
 text = "TIME = 300"
 label_settings = SubResource("LabelSettings_ofjor")
 
-[node name="PrimeraOrden" parent="." instance=ExtResource("10_53rlh")]
+[node name="Orden" parent="." instance=ExtResource("10_53rlh")]
 position = Vector2(847, 30)
 scale = Vector2(2, 2)
 
-[node name="SegundaOrden" parent="." instance=ExtResource("10_53rlh")]
+[node name="Orden3" parent="." instance=ExtResource("10_53rlh")]
 position = Vector2(848, 421)
 scale = Vector2(2, 2)
 
-[node name="TerceraOrden" parent="." instance=ExtResource("10_53rlh")]
+[node name="Orden4" parent="." instance=ExtResource("10_53rlh")]
 position = Vector2(848, 228)
 scale = Vector2(2, 2)
 

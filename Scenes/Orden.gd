@@ -173,9 +173,6 @@ func _ready():
 	priceLabel.text = "$ %.2f" % get_costo()
 	generated_ingredients = generated
 
-func reset():
-	_ready()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
