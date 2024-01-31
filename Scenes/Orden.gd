@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var order_tile = $OrderTileMap
+@onready var priceLabel = $priceLabel
 var completada = false
 func setCompletada():
 	completada = true
@@ -169,6 +170,7 @@ func _ready():
 	#order_tile.force_update(PAPER_LAYER)
 	print('generated ingredient list: ', generated)
 	print('Total del costo de la orden: $', get_costo())
+	priceLabel.text = "$ %.2f" % get_costo()
 	generated_ingredients = generated
 
 

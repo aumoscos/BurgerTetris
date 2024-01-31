@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8b7g4u8yx4na"]
+[gd_scene load_steps=8 format=3 uid="uid://c8b7g4u8yx4na"]
 
 [ext_resource type="Texture2D" uid="uid://efnv2rjk3taf" path="res://Scenes/OrdenTileMap.png" id="1_38uec"]
 [ext_resource type="Script" path="res://Scenes/Orden.gd" id="1_b30ha"]
 [ext_resource type="Texture2D" uid="uid://dnd2edgk2axro" path="res://Scenes/OrdernTileMapNumber.png" id="3_rvttn"]
+[ext_resource type="FontFile" uid="uid://cbb8letrui53w" path="res://Fonts/rainyhearts.ttf" id="4_3e2yk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c4mjy"]
 texture = ExtResource("1_38uec")
@@ -41,9 +42,25 @@ sources/1 = SubResource("TileSetAtlasSource_ow7kg")
 
 [node name="Orden" type="Node2D"]
 script = ExtResource("1_b30ha")
+metadata/_edit_vertical_guides_ = [16.0, 64.0]
+metadata/_edit_horizontal_guides_ = [80.0]
 
 [node name="OrderTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xa7i6")
 format = 2
 layer_0/name = "background"
 layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 1, 65536, 0, 65537, 65536, 1, 131073, 65536, 1, 196609, 65536, 1, 2, 65536, 0, 131074, 65536, 1, 196610, 65536, 1, 4, 131072, 0, 65540, 131072, 1, 131076, 131072, 1, 196612, 131072, 1, 3, 65536, 0, 65539, 65536, 1, 65538, 65536, 1, 131075, 65536, 1, 196611, 65536, 1, 262145, 65536, 1, 262146, 65536, 1, 262147, 65536, 1, 327681, 65536, 2, 327682, 65536, 2, 327683, 65536, 2, 327684, 131072, 2, 327680, 0, 2, 262144, 0, 1, 262148, 131072, 1)
+
+[node name="priceLabel" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 82.0
+offset_right = 85.0
+offset_bottom = 106.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.270588, 0.0392157, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("4_3e2yk")
+theme_override_font_sizes/font_size = 25
+text = "$ 2.45"
+horizontal_alignment = 3
+vertical_alignment = 1
+uppercase = true
