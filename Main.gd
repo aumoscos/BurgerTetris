@@ -50,6 +50,7 @@ var hamb3Instances = []
 var hamburguesas = []
 var dictIngredientes = {0:"carne", 1:"lechuga", 2:"queso",3:"tocino",4:"champinon",5:"tomate"}
 var instCounter = 0
+var completadas = 0
 
 func _ready():
 	var rnum = rng.randi_range(0, 5)
@@ -58,10 +59,15 @@ func _ready():
 	instance.position = Vector2(601,16)
 	add_child(instance)
 	lastInstance= instance
+	resetTimer()
+
+func resetTimer():
+	segundos = 300
+	puntaje = 0
 
 
 #Variables para temporizador y puntaje
-var segundos = 300
+var segundos = 3
 var puntaje = 0
 @onready var puntajeLabel = $Puntaje
 
@@ -70,9 +76,11 @@ func updateTime():
 	segundos -=1
 	get_tree().get_nodes_in_group("temporizador")[0].text = "TIME = " + str(segundos)
 	if segundos == 0:
-		get_tree().change_scene_to_file("res://Scenes/MainTimeOut.tscn")
+		if completadas >= 2:
+			get_tree().change_scene_to_file("res://Scenes/MainYouWin.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Scenes/MainYouLose.tscn")
 
-		
 
 func inst(pos):
 		var rnum = rng.randi_range(0, 5)
@@ -119,6 +127,7 @@ func comparar_con_orden(hamb, orden):
 		puntaje+=orden.get_costo()
 		orden.setCompletada()
 		puntajeLabel.text=str(puntaje)
+		completadas += 1
 	print(puntaje)
 
 func _on_pan_1_body_entered(body):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo2dkb0hjuwck"]
+[gd_scene load_steps=8 format=3 uid="uid://xf3p3sccwfjt"]
 
 [ext_resource type="Texture2D" uid="uid://nvan8y4cme7y" path="res://arte/backgrounds/victory.png" id="1_20yr1"]
 [ext_resource type="Script" path="res://Scripts/controlVictory.gd" id="1_m0g6g"]
