@@ -4,8 +4,9 @@ extends CharacterBody2D
 func _physics_process(_delta):
 	var input_direction = Vector2(
 		0,
-		1.25
+		1.25+(2*Input.get_action_raw_strength("Down"))
 	)
+	
 	velocity = input_direction * move_speed
 	move_and_slide()
 	if Input.is_action_just_pressed("Right"):
@@ -14,5 +15,5 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("Left"):
 		if !(position.x < 500):	
 			position.x-=140
-	
+
 

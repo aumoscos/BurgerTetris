@@ -76,13 +76,14 @@ func updateTime():
 	segundos -=1
 	get_tree().get_nodes_in_group("temporizador")[0].text = "TIME = " + str(segundos)
 	if segundos == 0:
-		if completadas >= 2:
+		if completadas > 2:
 			get_tree().change_scene_to_file("res://Scenes/MainYouWin.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/MainYouLose.tscn")
 
 
 func inst(pos):
+		completadas += 1
 		var rnum = rng.randi_range(0, 5)
 		panNext = rng.randi_range(8,10)
 		if(panNext<10):
@@ -102,11 +103,11 @@ func cerrarHamburguesa(hamb, hambInst):
 	var completa = []
 	for ingrediente in hamb:
 		completa.append(ingrediente)
-	hamburguesas.append(completa)
+	if !completa.is_empty():
+		hamburguesas.append(completa)
 	comparar_con_orden(completa, orden1)
 	comparar_con_orden(completa, orden2)
 	comparar_con_orden(completa, orden3)
-	print(hamburguesas)
 	for inst in hambInst:
 		inst.queue_free()
 	hambInst.clear()
@@ -114,7 +115,6 @@ func cerrarHamburguesa(hamb, hambInst):
 
 func comparar_con_orden(hamb, orden):
 	var cumple = true
-	print(orden.generated_ingredients[0][1])
 	for key in dictIngredientes:
 			var nombre = dictIngredientes[key]
 			var cantidad=hamb.count(key)
@@ -122,13 +122,13 @@ func comparar_con_orden(hamb, orden):
 				if(ingredient[0]==nombre):
 					if(cantidad != ingredient[1]):
 						cumple = false
-	print(cumple)
 	if(cumple == true):
 		puntaje+=orden.get_costo()
 		orden.setCompletada()
 		puntajeLabel.text=str(puntaje)
 		completadas += 1
-	print(puntaje)
+	print(completadas)
+	
 
 func _on_pan_1_body_entered(body):
 	if(panNext==10):
