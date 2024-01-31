@@ -65,7 +65,7 @@ var puntaje = 0
 #funcion para Temporizador
 func updateTime():
 	segundos -=1
-	get_tree().get_nodes_in_group("temporizador")[0].text = "TIME = 0:" + str(segundos)
+	get_tree().get_nodes_in_group("temporizador")[0].text = "TIME = " + str(segundos)
 	if segundos == 0:
 		get_tree().change_scene_to_file("res://Scenes/MainTimeOut.tscn")
 
