@@ -49,6 +49,7 @@ var hamb2Instances = []
 var hamb3Instances = []
 var hamburguesas = []
 var dictIngredientes = {0:"carne", 1:"lechuga", 2:"queso",3:"tocino",4:"champinon",5:"tomate"}
+var instCounter = 0
 
 func _ready():
 	var rnum = rng.randi_range(0, 5)
@@ -57,6 +58,7 @@ func _ready():
 	instance.position = Vector2(601,16)
 	add_child(instance)
 	lastInstance= instance
+
 
 #Variables para temporizador y puntaje
 var segundos = 300
@@ -72,19 +74,19 @@ func updateTime():
 		
 
 func inst(pos):
-	var rnum = rng.randi_range(0, 5)
-	panNext = rng.randi_range(8,10)
-	if(panNext<10):
-		var instance = ingredientes[rnum].instantiate()
-		lastgen = rnum
-		instance.position = pos
-		add_child(instance)
-		lastInstance= instance
-	else:
-		var instance = panSuperior.instantiate()
-		instance.position = pos
-		add_child(instance)
-		lastInstance= instance
+		var rnum = rng.randi_range(0, 5)
+		panNext = rng.randi_range(8,10)
+		if(panNext<10):
+			var instance = ingredientes[rnum].instantiate()
+			lastgen = rnum
+			instance.position = pos
+			add_child(instance)
+			lastInstance= instance
+		else:
+			var instance = panSuperior.instantiate()
+			instance.position = pos
+			add_child(instance)
+			lastInstance= instance
 
 func cerrarHamburguesa(hamb, hambInst):
 	hambInst.append(lastInstance)
