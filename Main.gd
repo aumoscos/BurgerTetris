@@ -63,6 +63,7 @@ func _ready():
 #Variables para temporizador y puntaje
 var segundos = 300
 var puntaje = 0
+@onready var puntajeLabel = $Puntaje
 
 #funcion para Temporizador
 func updateTime():
@@ -114,8 +115,11 @@ func comparar_con_orden(hamb, orden):
 					if(cantidad != ingredient[1]):
 						cumple = false
 	print(cumple)
-	puntaje+=orden.get_costo()
-	orden.setCompletada()
+	if(cumple == true):
+		puntaje+=orden.get_costo()
+		orden.setCompletada()
+		puntajeLabel.text=str(puntaje)
+	print(puntaje)
 
 func _on_pan_1_body_entered(body):
 	if(panNext==10):

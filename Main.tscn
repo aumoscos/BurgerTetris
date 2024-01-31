@@ -199,7 +199,7 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 shape = SubResource("RectangleShape2D_0oos6")
 
-[node name="Label" type="Label" parent="."]
+[node name="Puntaje" type="Label" parent="."]
 offset_left = 102.0
 offset_top = 92.5
 offset_right = 200.0
