@@ -164,7 +164,8 @@ func _ready():
 		order_state[ingredient[0]]['index'] = i
 		order_tile.set_cell(PAPER_LAYER, Vector2(1, i+1), SOURCE_ID, to_vect(target_atlas_location))
 		order_tile.set_cell(PAPER_LAYER, Vector2i(2, i+1), ORDER_COUNT_ID, quantity_tileset[ingredient[1]])
-		order_tile.set_cell(PAPER_LAYER, Vector2i(3, i+1), ORDER_COUNT_ID, completed_tileset[0])
+		# Descomentar cuando ya se encuentre disponible la contabilización de ingredinetes
+		# order_tile.set_cell(PAPER_LAYER, Vector2i(3, i+1), ORDER_COUNT_ID, completed_tileset[0])
 	#order_tile.force_update(PAPER_LAYER)
 	print('generated ingredient list: ', generated)
 	print('Total del costo de la orden: $', get_costo())
@@ -172,9 +173,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	for ingredient_name in order_state:
-		var properties = order_state[ingredient_name]
-		var i = properties['index']
-		var completed_count = properties['count']
-		order_tile.set_cell(PAPER_LAYER, Vector2i(3, i+1), ORDER_COUNT_ID, completed_tileset[completed_count])
+#func _process(delta):
+	#for ingredient_name in order_state:
+		#var properties = order_state[ingredient_name]
+		#var i = properties['index']
+		#var completed_count = properties['count']
+		#order_tile.set_cell(PAPER_LAYER, Vector2i(3, i+1), ORDER_COUNT_ID, completed_tileset[completed_count])
