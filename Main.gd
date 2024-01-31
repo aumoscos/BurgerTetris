@@ -25,9 +25,9 @@ var ingrediente21 = preload("res://Ingredientes/ingrediente_21.tscn")
 
 var pan1Tapa = preload("res://Ingredientes/pan1Tapa.tscn")
 
-@onready var orden1 = $Orden
-@onready var orden2 = $Orden3
-@onready var orden3 = $Orden4
+@onready var orden1 = $PrimeraOrden
+@onready var orden2 = $SegundaOrden
+@onready var orden3 = $TerceraOrden
 
 var ingredientes = [ingrediente1, ingrediente4, ingrediente7, ingrediente9, ingrediente10, ingrediente15]
 
@@ -134,6 +134,7 @@ func _on_pan_1_body_entered(body):
 	if(panNext==10):
 		cerrarHamburguesa(hamb1, hamb1Instances)
 		emit_signal("hamb1Completada")
+		orden1.reset()
 	else:
 		hamb1.append(lastgen)
 		hamb1Instances.append(lastInstance)
@@ -150,6 +151,7 @@ func _on_pan_2_body_entered(body):
 	if(panNext==10):
 		cerrarHamburguesa(hamb2, hamb2Instances)
 		emit_signal("hamb2Completada")
+		orden2.reset()
 	else:
 		hamb2.append(lastgen)
 		hamb2Instances.append(lastInstance)
@@ -167,6 +169,7 @@ func _on_pan_3_body_entered(body):
 	if(panNext==10):
 		cerrarHamburguesa(hamb3, hamb3Instances)
 		emit_signal("hamb3Completada")
+		orden3.reset()
 	else:
 		hamb3.append(lastgen)
 		hamb3Instances.append(lastInstance)
