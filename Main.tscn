@@ -21,13 +21,13 @@ outline_size = 13
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebh1i"]
-size = Vector2(96, 63)
+size = Vector2(84, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru8b6"]
 size = Vector2(84, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4y1f5"]
-size = Vector2(90, 56)
+size = Vector2(84, 64)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_libjx")
@@ -120,16 +120,15 @@ position = Vector2(848, 228)
 scale = Vector2(2, 2)
 
 [node name="Pan1" type="Area2D" parent="."]
-position = Vector2(467, 645)
+position = Vector2(458, 600)
 script = ExtResource("8_6vi50")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pan1"]
-position = Vector2(-3, -45.5)
 shape = SubResource("RectangleShape2D_ebh1i")
 
 [node name="Pan2" type="Area2D" parent="."]
-position = Vector2(604, 600)
+position = Vector2(603, 600)
 script = ExtResource("9_xoauu")
 metadata/_edit_group_ = true
 
@@ -137,7 +136,7 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_ru8b6")
 
 [node name="Pan3" type="Area2D" parent="."]
-position = Vector2(749, 596)
+position = Vector2(746, 600)
 script = ExtResource("10_0u6qi")
 metadata/_edit_group_ = true
 

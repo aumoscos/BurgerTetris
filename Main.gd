@@ -1,21 +1,21 @@
 extends Node2D
 
-var ingrediente1 = preload("res://Ingredientes/ingrediente_1.tscn")
+var ingrediente1 = preload("res://Ingredientes/ingrediente_1.tscn") #carne
 var ingrediente2 = preload("res://Ingredientes/ingrediente_2.tscn")
 var ingrediente3 = preload("res://Ingredientes/ingrediente_3.tscn")
-var ingrediente4 = preload("res://Ingredientes/ingrediente_4.tscn")
+var ingrediente4 = preload("res://Ingredientes/ingrediente_4.tscn") #lechuga
 var panSuperior = preload("res://Ingredientes/pan_superior.tscn")
 var ingrediente5 = preload("res://Ingredientes/ingrediente_5.tscn")
 var ingrediente6 = preload("res://Ingredientes/ingrediente_6.tscn")
-var ingrediente7 = preload("res://Ingredientes/ingrediente_7.tscn")
+var ingrediente7 = preload("res://Ingredientes/ingrediente_7.tscn") #queso
 var ingrediente8 = preload("res://Ingredientes/ingrediente_8.tscn")
-var ingrediente9 = preload("res://Ingredientes/ingrediente_9.tscn")
-var ingrediente10 = preload("res://Ingredientes/ingrediente_10.tscn")
+var ingrediente9 = preload("res://Ingredientes/ingrediente_9.tscn") #tocino
+var ingrediente10 = preload("res://Ingredientes/ingrediente_10.tscn") #champiñones
 var ingrediente11 = preload("res://Ingredientes/ingrediente_11.tscn")
 var ingrediente12 = preload("res://Ingredientes/ingrediente_12.tscn")
 var ingrediente13 = preload("res://Ingredientes/ingrediente_13.tscn")
 var ingrediente14 = preload("res://Ingredientes/ingrediente_14.tscn")
-var ingrediente15 = preload("res://Ingredientes/ingrediente_15.tscn")
+var ingrediente15 = preload("res://Ingredientes/ingrediente_15.tscn") #tomate
 var ingrediente16 = preload("res://Ingredientes/ingrediente_16.tscn")
 var ingrediente17 = preload("res://Ingredientes/ingrediente_17.tscn")
 var ingrediente18 = preload("res://Ingredientes/ingrediente_18.tscn")
@@ -25,8 +25,12 @@ var ingrediente21 = preload("res://Ingredientes/ingrediente_21.tscn")
 
 var pan1Tapa = preload("res://Ingredientes/pan1Tapa.tscn")
 
+@onready var orden1 = $Orden
+@onready var orden2 = $Orden3
+@onready var orden3 = $Orden4
 
-var ingredientes = [ingrediente1, ingrediente2, ingrediente3, ingrediente4, ingrediente5, ingrediente6, ingrediente7, ingrediente8, ingrediente9, ingrediente10, ingrediente11, ingrediente12, ingrediente13, ingrediente14, ingrediente15, ingrediente16, ingrediente17, ingrediente18, ingrediente19, ingrediente20, ingrediente21]
+var ingredientes = [ingrediente1, ingrediente4, ingrediente7, ingrediente9, ingrediente10, ingrediente15]
+
 var rng = RandomNumberGenerator.new()
 var panNext = 0
 var lastgen = 0
@@ -44,10 +48,10 @@ var hamb1Instances = []
 var hamb2Instances = []
 var hamb3Instances = []
 var hamburguesas = []
-var dictIngredientes = {0:"carne", 1:"queso", 2:"lechuga",3:"huevo"}
+var dictIngredientes = {0:"carne", 1:"lechuga", 2:"queso",3:"tocino",4:"champinon",5:"tomate"}
 
 func _ready():
-	var rnum = rng.randi_range(0, 3)
+	var rnum = rng.randi_range(0, 5)
 	var instance = ingredientes[rnum].instantiate()
 	lastgen = rnum
 	instance.position = Vector2(601,16)
@@ -55,7 +59,7 @@ func _ready():
 	lastInstance= instance
 
 #Variables para temporizador y puntaje
-var segundos = 90
+var segundos = 300
 var puntaje = 0
 
 #funcion para Temporizador
@@ -68,7 +72,7 @@ func updateTime():
 		
 
 func inst(pos):
-	var rnum = rng.randi_range(0, 3)
+	var rnum = rng.randi_range(0, 5)
 	panNext = rng.randi_range(8,10)
 	if(panNext<10):
 		var instance = ingredientes[rnum].instantiate()
@@ -82,22 +86,38 @@ func inst(pos):
 		add_child(instance)
 		lastInstance= instance
 
+func cerrarHamburguesa(hamb, hambInst):
+	hambInst.append(lastInstance)
+	var completa = []
+	for ingrediente in hamb:
+		completa.append(ingrediente)
+	hamburguesas.append(completa)
+	comparar_con_orden(completa, orden1)
+	comparar_con_orden(completa, orden2)
+	comparar_con_orden(completa, orden3)
+	print(hamburguesas)
+	for inst in hambInst:
+		inst.queue_free()
+	hambInst.clear()
+	hamb.clear()
 
-
+func comparar_con_orden(hamb, orden):
+	var cumple = true
+	print(orden.generated_ingredients[0][1])
+	for key in dictIngredientes:
+			var nombre = dictIngredientes[key]
+			var cantidad=hamb.count(key)
+			for ingredient in orden.generated_ingredients:
+				if(ingredient[0]==nombre):
+					if(cantidad != ingredient[1]):
+						cumple = false
+	print(cumple)
+	puntaje+=orden.get_costo()
+	orden.setCompletada()
 
 func _on_pan_1_body_entered(body):
-	
 	if(panNext==10):
-		hamb1Instances.append(lastInstance)
-		var completa = []
-		for ingrediente in hamb1:
-			completa.append(ingrediente)
-		hamburguesas.append(completa)
-		print(hamburguesas)
-		for inst in hamb1Instances:
-			inst.queue_free()
-		hamb1Instances.clear()
-		hamb1.clear()
+		cerrarHamburguesa(hamb1, hamb1Instances)
 		emit_signal("hamb1Completada")
 	else:
 		hamb1.append(lastgen)
@@ -111,25 +131,13 @@ func _on_pan_1_body_entered(body):
 	
 
 
-
 func _on_pan_2_body_entered(body):
 	if(panNext==10):
-		hamb2Instances.append(lastInstance)
-		var completa = []
-		for ingrediente in hamb2:
-			completa.append(ingrediente)
-		hamburguesas.append(completa)
-		print(hamburguesas)
-		for inst in hamb2Instances:
-			inst.queue_free()
-		hamb2Instances.clear()
-		hamb2.clear()
+		cerrarHamburguesa(hamb2, hamb2Instances)
 		emit_signal("hamb2Completada")
 	else:
 		hamb2.append(lastgen)
-		print(hamb2)
 		hamb2Instances.append(lastInstance)
-		print(hamb2Instances)
 		emit_signal("pan2")
 
 	body.set_physics_process(false)
@@ -142,24 +150,11 @@ func _on_pan_2_body_entered(body):
 
 func _on_pan_3_body_entered(body):
 	if(panNext==10):
-		hamb3Instances.append(lastInstance)
-		print("Hamburguesa completada:")
-		print(hamb3)
-		var completa = []
-		for ingrediente in hamb3:
-			completa.append(ingrediente)
-		hamburguesas.append(completa)
-		print(hamburguesas)
-		for inst in hamb3Instances:
-			inst.queue_free()
-		hamb3Instances.clear()
-		hamb3.clear()
+		cerrarHamburguesa(hamb3, hamb3Instances)
 		emit_signal("hamb3Completada")
 	else:
 		hamb3.append(lastgen)
-		print(hamb3)
 		hamb3Instances.append(lastInstance)
-		print(hamb3Instances)
 		emit_signal("pan3")
 	body.set_physics_process(false)
 	await get_tree().create_timer(2).timeout

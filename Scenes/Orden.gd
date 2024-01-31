@@ -1,7 +1,9 @@
 extends Node2D
 
 @onready var order_tile = $OrderTileMap
-
+var completada = false
+func setCompletada():
+	completada = true
 const PAPER_LAYER: int = 0
 # El id del recurso para las texturas de la orden
 const SOURCE_ID: int = 0
