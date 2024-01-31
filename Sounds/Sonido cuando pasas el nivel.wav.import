@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dtmr74hx06kpn"
+path="res://.godot/imported/Sonido cuando pasas el nivel.wav-a565e7cef16e5c065f5d518e257b72c0.sample"
+
+[deps]
+
+source_file="res://Sounds/Sonido cuando pasas el nivel.wav"
+dest_files=["res://.godot/imported/Sonido cuando pasas el nivel.wav-a565e7cef16e5c065f5d518e257b72c0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
