@@ -172,3 +172,23 @@ func _on_pan_3_body_entered(body):
 
 func _on_timer_segundo():
 	updateTime()
+	
+	
+func _reset_game():
+	segundos = 300
+	puntaje = 0
+	completadas = 0
+	hamb1.clear()
+	hamb2.clear()
+	hamb3.clear()
+	hamb1Instances.clear()
+	hamb2Instances.clear()
+	hamb3Instances.clear()
+	hamburguesas.clear()
+	lastgen = 0
+	lastInstance = null
+	# Aquí puedes reiniciar otras variables y estados del juego según sea necesario
+
+# Conecta la señal _on_quit_game_pressed() al reinicio del juego
+func _on_quit_game_pressed():
+	_reset_game()

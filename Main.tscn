@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://djb7qnqe2k7iq"]
+[gd_scene load_steps=29 format=3 uid="uid://djb7qnqe2k7iq"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_libjx"]
 [ext_resource type="Texture2D" uid="uid://b84qj5x32jwc2" path="res://GlassPaneBig.png" id="2_actqr"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c8b7g4u8yx4na" path="res://Scenes/Orden.tscn" id="10_53rlh"]
 [ext_resource type="Script" path="res://Scripts/controlTimer.gd" id="11_ybkws"]
 [ext_resource type="AudioStream" uid="uid://6o8ysjuvv7fk" path="res://Sounds/fast-food-182290.mp3" id="16_ntcmt"]
+[ext_resource type="PackedScene" uid="uid://88h37a7yw835" path="res://Scenes/pauseMenu2.tscn" id="17_7wso3"]
 
 [sub_resource type="Animation" id="Animation_4tf6q"]
 length = 0.001
@@ -261,6 +262,10 @@ script = ExtResource("11_ybkws")
 [node name="AmbientPlayer" type="AudioStreamPlayer" parent="Timer"]
 stream = ExtResource("16_ntcmt")
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu2" parent="CanvasLayer" instance=ExtResource("17_7wso3")]
 
 [connection signal="hamb1Completada" from="." to="Pan1" method="_on_node_2d_hamb_1_completada"]
 [connection signal="hamb2Completada" from="." to="Pan2" method="_on_node_2d_hamb_2_completada"]
