@@ -76,7 +76,7 @@ func updateTime():
 	segundos -=1
 	get_tree().get_nodes_in_group("temporizador")[0].text = "TIME = " + str(segundos)
 	if segundos == 0:
-		if completadas > 2:
+		if completadas >= 2:
 			get_tree().change_scene_to_file("res://Scenes/MainYouWin.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/MainYouLose.tscn")
@@ -84,7 +84,7 @@ func updateTime():
 
 func inst(pos):
 		var rnum = rng.randi_range(0, 5)
-		panNext = rng.randi_range(8,10)
+		panNext = rng.randi_range(5,10)
 		if(panNext<10):
 			var instance = ingredientes[rnum].instantiate()
 			lastgen = rnum

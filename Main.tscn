@@ -1,8 +1,8 @@
 [gd_scene load_steps=27 format=3 uid="uid://djb7qnqe2k7iq"]
 
-[ext_resource type="Texture2D" uid="uid://bh1y3i2ltxa0f" path="res://Background.png" id="1_150g1"]
 [ext_resource type="Script" path="res://Main.gd" id="1_libjx"]
 [ext_resource type="Texture2D" uid="uid://b84qj5x32jwc2" path="res://GlassPaneBig.png" id="2_actqr"]
+[ext_resource type="Texture2D" uid="uid://beiofdcekynph" path="res://BackgroundNewpng.png" id="2_lvvs5"]
 [ext_resource type="Texture2D" uid="uid://2gmm6rwve1g2" path="res://arte/backgrounds/contenedor.png" id="3_rxci7"]
 [ext_resource type="Texture2D" uid="uid://djp22grklle6y" path="res://5740.png" id="3_w6n2s"]
 [ext_resource type="Texture2D" uid="uid://ducjhpqjrniyo" path="res://arte/backgrounds/estadoTablero.png" id="4_itq6k"]
@@ -115,8 +115,9 @@ metadata/_edit_horizontal_guides_ = [-112.0, 427.0, 19.0]
 metadata/_edit_vertical_guides_ = [697.0, 505.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.8)
 position = Vector2(601, 320)
-texture = ExtResource("1_150g1")
+texture = ExtResource("2_lvvs5")
 metadata/_edit_lock_ = true
 
 [node name="contenedor" type="Sprite2D" parent="."]
