@@ -50,16 +50,15 @@ text = "JUGAR
 "
 
 [node name="jugar2" type="Button" parent="VBoxControles"]
-texture_filter = 1
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.964706, 0.996078, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 13
-theme_override_constants/h_separation = 10
-theme_override_font_sizes/font_size = 30
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_24y06")
 action_mode = 0
-text = "SALIR"
+text = "SALIR
+"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_5epc1")]
 

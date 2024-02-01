@@ -79,14 +79,14 @@ func updateTime():
 	labelTemporizador.text = "TIME = " + str(segundos)
 	if segundos == 0:
 		if completadas >= 2:
-			get_tree().change_scene_to_file("res://Scenes/MainYouWin.tscn")
+			get_tree().change_scene_to_file("res://Scenes/MainVictory.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/MainYouLose.tscn")
 
 
 func inst(pos):
 		var rnum = rng.randi_range(0, 5)
-		panNext = rng.randi_range(5,10)
+		panNext = rng.randi_range(6,10)
 		if(panNext<10):
 			var instance = ingredientes[rnum].instantiate()
 			lastgen = rnum
