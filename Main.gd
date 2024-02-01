@@ -28,6 +28,7 @@ var pan1Tapa = preload("res://Ingredientes/pan1Tapa.tscn")
 @onready var orden1 = $Orden
 @onready var orden2 = $Orden3
 @onready var orden3 = $Orden4
+@onready var labelTemporizador = $Temporizador
 
 var ingredientes = [ingrediente1, ingrediente4, ingrediente7, ingrediente9, ingrediente10, ingrediente15]
 
@@ -74,7 +75,8 @@ var puntaje = 0
 #funcion para Temporizador
 func updateTime():
 	segundos -=1
-	get_tree().get_nodes_in_group("temporizador")[0].text = "TIME = " + str(segundos)
+	#get_tree().get_nodes_in_group("temporizador")[0].text = "TIME = " + str(segundos)
+	labelTemporizador.text = "TIME = " + str(segundos)
 	if segundos == 0:
 		if completadas >= 2:
 			get_tree().change_scene_to_file("res://Scenes/MainYouWin.tscn")
