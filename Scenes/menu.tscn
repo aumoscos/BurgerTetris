@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://narmno3ydvd2"]
+[gd_scene load_steps=7 format=3 uid="uid://narmno3ydvd2"]
 
 [ext_resource type="Script" path="res://Scripts/control.gd" id="1_4sa55"]
 [ext_resource type="PackedScene" uid="uid://dyit5c8mi7ewh" path="res://Scenes/parallax_background.tscn" id="2_5epc1"]
 [ext_resource type="Texture2D" uid="uid://c0r10v1ixc1sp" path="res://arte/backgrounds/logoJuego.png" id="3_ay0xk"]
+[ext_resource type="AudioStream" uid="uid://csigw1lm3lyu3" path="res://Sounds/main_screen.wav" id="4_h18e3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24y06"]
 content_margin_left = 0.0
@@ -73,6 +74,10 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_mqc3g")
+
+[node name="AmbientPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_h18e3")
+autoplay = true
 
 [connection signal="pressed" from="VBoxControles/jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxControles/jugar2" to="." method="_on_jugar_2_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://djb7qnqe2k7iq"]
+[gd_scene load_steps=28 format=3 uid="uid://djb7qnqe2k7iq"]
 
 [ext_resource type="Texture2D" uid="uid://bh1y3i2ltxa0f" path="res://Background.png" id="1_150g1"]
 [ext_resource type="Script" path="res://Main.gd" id="1_libjx"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Pan3.gd" id="10_0u6qi"]
 [ext_resource type="PackedScene" uid="uid://c8b7g4u8yx4na" path="res://Scenes/Orden.tscn" id="10_53rlh"]
 [ext_resource type="Script" path="res://Scripts/controlTimer.gd" id="11_ybkws"]
+[ext_resource type="AudioStream" uid="uid://b35d0qippdj1h" path="res://Sounds/ambient.wav" id="16_bhkws"]
 
 [sub_resource type="Animation" id="Animation_4tf6q"]
 length = 0.001
@@ -255,6 +256,10 @@ shape = SubResource("RectangleShape2D_4y1f5")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 script = ExtResource("11_ybkws")
+
+[node name="AmbientPlayer" type="AudioStreamPlayer" parent="Timer"]
+stream = ExtResource("16_bhkws")
+autoplay = true
 
 [connection signal="hamb1Completada" from="." to="Pan1" method="_on_node_2d_hamb_1_completada"]
 [connection signal="hamb2Completada" from="." to="Pan2" method="_on_node_2d_hamb_2_completada"]
